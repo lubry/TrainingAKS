@@ -1,8 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: vs-azure-vote-front
-  namespace: nsapp
+  name: azure-vote-front
 spec:
   hosts:
     - 'training.ftp.sh'
@@ -11,6 +10,6 @@ spec:
   http:
     - route:
         - destination:
-            host: svc-azure-vote-front.nsapp.svc.cluster.local
+            host: azure-vote-front.default.svc.cluster.local
             port:
               number: 80

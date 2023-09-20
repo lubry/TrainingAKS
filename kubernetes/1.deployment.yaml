@@ -1,14 +1,8 @@
 ---
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: nsapp
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: azure-vote-back
-  namespace: nsapp
 spec:
   replicas: 1
   selector:
@@ -42,7 +36,6 @@ apiVersion: v1
 kind: Service
 metadata:
   name: azure-vote-back
-  namespace: nsapp
 spec:
   ports:
   - port: 6379
@@ -53,7 +46,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: azure-vote-front
-  namespace: nsapp
 spec:
   replicas: 1
   selector:
@@ -85,8 +77,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: svc-azure-vote-front
-  namespace: nsapp
+  name: azure-vote-front
 spec:
   ports:
   - port: 80
